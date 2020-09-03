@@ -13,6 +13,15 @@ const Todo = (props) => (
     <td className={props.todo.todo_completed ? "completed" : ""}>
       {props.todo.todo_priority}
     </td>
+    <td className={props.todo.todo_completed ? "completed" : ""}>
+      {props.todo.todo_cardnumber}
+    </td>
+    <td className={props.todo.todo_completed ? "completed" : ""}>
+      {props.todo.todo_playername}
+    </td>
+    <td className={props.todo.todo_completed ? "completed" : ""}>
+      {props.todo.todo_teamname}
+    </td>
     <td>
       <Link to={"/edit/" + props.todo._id}>Edit</Link>
     </td>
@@ -65,6 +74,9 @@ export default class TodosList extends Component {
           <thead>
             <tr>
               <th>Description</th>
+              <th>Team Name</th>
+              <th>Player Name</th>
+              <th>Card Number</th>
               <th>Responsible</th>
               <th>Priority</th>
               <th>Actions</th>

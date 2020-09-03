@@ -6,16 +6,40 @@ export default class CreateTodo extends Component {
     super(props);
 
     this.onChangeTodoDescription = this.onChangeTodoDescription.bind(this);
+    this.onChangeTodoCardNumber = this.onChangeTodoCardNumber.bind(this);
+    this.onChangeTodoTeamName = this.onChangeTodoTeamName.bind(this);
+    this.onChangeTodoPlayerName = this.onChangeTodoPlayerName.bind(this);
     this.onChangeTodoResponsible = this.onChangeTodoResponsible.bind(this);
     this.onChangeTodoPriority = this.onChangeTodoPriority.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       todo_description: "",
+      todo_cardnumber: "",
+      todo_teamname: "",
+      todo_playername: "",
       todo_responsible: "",
       todo_priority: "",
       todo_completed: false,
     };
+  }
+
+  onChangeTodoCardNumber(e) {
+    this.setState({
+      todo_cardnumber: e.target.value,
+    });
+  }
+
+  onChangeTodoTeamName(e) {
+    this.setState({
+      todo_teamname: e.target.value,
+    });
+  }
+
+  onChangeTodoPlayerName(e) {
+    this.setState({
+      todo_playername: e.target.value,
+    });
   }
 
   onChangeTodoDescription(e) {
@@ -40,6 +64,9 @@ export default class CreateTodo extends Component {
     e.preventDefault();
 
     console.log(`Form submitted:`);
+    console.log(`Todo Card Number: ${this.state.todo_cardnumber}`);
+    console.log(`Todo Team Name: ${this.state.todo_teamname}`);
+    console.log(`Todo Player Name: ${this.state.todo_playername}`);
     console.log(`Todo Description: ${this.state.todo_description}`);
     console.log(`Todo Responsible: ${this.state.todo_responsible}`);
     console.log(`Todo Priority: ${this.state.todo_priority}`);
@@ -47,6 +74,9 @@ export default class CreateTodo extends Component {
 
     const newTodo = {
       todo_description: this.state.todo_description,
+      todo_teamname: this.state.todo_teamname,
+      todo_playername: this.state.todo_playername,
+      todo_cardnumber: this.state.todo_cardnumber,
       todo_responsible: this.state.todo_responsible,
       todo_priority: this.state.todo_priority,
       todo_completed: this.state.todo_completed,
@@ -61,6 +91,9 @@ export default class CreateTodo extends Component {
 
     this.setState({
       todo_description: "",
+      todo_teamname: "",
+      todo_playername: "",
+      todo_cardnumber: "",
       todo_responsible: "",
       todo_priority: "",
       todo_completed: false,
@@ -79,6 +112,33 @@ export default class CreateTodo extends Component {
               className="form-control"
               value={this.state.todo_description}
               onChange={this.onChangeTodoDescription}
+            />
+          </div>
+          <div className="form-group">
+            <label>Card Number: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.todo_cardnumber}
+              onChange={this.onChangeTodoCardNumber}
+            />
+          </div>
+          <div className="form-group">
+            <label>Team Name: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.todo_teamname}
+              onChange={this.onChangeTodoTeamName}
+            />
+          </div>
+          <div className="form-group">
+            <label>Player Name: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.todo_playername}
+              onChange={this.onChangeTodoPlayerName}
             />
           </div>
           <div className="form-group">
